@@ -57,6 +57,7 @@ function edit(req, res) {
 }
 
 function deleteSkill(req, res) {
+  console.log(req.params)
   Skill.findByIdAndDelete(req.params.skillId)
   .then(skill => {
     res.redirect('/skills')
