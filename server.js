@@ -1,9 +1,12 @@
 // import npm packages
+import "dotenv/config.js"
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import createError from 'http-errors'
 import logger from 'morgan'
+import './config/database.js'
+// import methodOverride from 'method-override'
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
@@ -29,7 +32,7 @@ app.use(
 // mount imported routes
 app.use('/', indexRouter)
 app.use('/skills', skillsRouter)
-// app.use('/', usersRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

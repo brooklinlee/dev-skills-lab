@@ -1,9 +1,28 @@
-import { skills } from '../data/skills-data.js'
+// import { skills } from '../data/skills-data.js'
+import { Skill } from '../models/skill.js'
 
 function index(req, res) {
-  res.render('skills/index', {
-    skills: skills
+  Skill.find({})
+  .then(skills => {
+    res.render('skills/index', {
+      skills: skills
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
   })
 }
 
-export { index }
+function newSkill(req, res){
+  res.render('skills/new')
+}
+
+function create(req, res) {
+  req.body.done
+}
+
+export { 
+  index,
+  newSkill as new,
+}
