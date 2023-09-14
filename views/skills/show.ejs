@@ -6,9 +6,10 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Skill Edit</h1>
-  <h3>Skill: <%= skill.text %></h3>
-  
+  <h1>Skill:</h1>
+  <h2><%= skill.text %></h2>
+  <a href="/skills/<%= skill._id %>/edit">Edit</a>
+  <p>Learned: <%= skill.learned ? 'Yes' : 'No' %></p>
   <a href="/skills">Go Back</a>
 </body>
 </html>
